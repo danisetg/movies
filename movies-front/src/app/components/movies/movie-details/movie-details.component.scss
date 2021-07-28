@@ -1,0 +1,21 @@
+.movie-card {
+  border: solid 1px;
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+  width: fit-content;
+  .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+}
+
+.mat-icon {
+  vertical-align: bottom;
+  color: goldenrod;
+}
+
+.detail {
+  margin-top: 10px;
+}

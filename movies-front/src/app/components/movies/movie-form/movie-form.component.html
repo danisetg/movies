@@ -1,0 +1,60 @@
+<div class="container">
+  <div fxLayout="row">
+    <div fxLayour="column" fxFlex="15" fxHide.xs></div>
+    <div fxLayout="column" fxFlex="70" fxFlex.xs="100">
+      <h1>{{title}}</h1>
+      <form #movieForm="ngForm" (submit)="onSubmit(movieForm.value)">
+        <div fxLayout="row wrap" fxLayout.xs="column">
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput name="film" placeholder="Movie Title" [ngModel]="movie.film" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput name="genre" placeholder="Genre" [ngModel]="movie.genre" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput name="lead_studio" placeholder="Lead Studio" [ngModel]="movie.lead_studio" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayout.xs="column">
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput type="number" name="audience_score" placeholder="Audience Score" [ngModel]="movie.audience_score" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput type="number" name="profitability" placeholder="Profitability" [ngModel]="movie.profitability" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput name="rotten_tomatoes" placeholder="Rotten Tomatoes" [ngModel]="movie.rotten_tomatoes" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayout.xs="column">
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput type="number" name="worldwide_gross" placeholder="Worldwide Gross" [ngModel]="movie.worldwide_gross" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxFlex="30" fxFlex.xs="100">
+            <mat-form-field>
+              <input matInput type="number" name="year" placeholder="Year" [ngModel]="movie.year" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayout.xs="column">
+          <button mat-raised-button color="primary" type="submit">Save</button>
+          <button mat-raised-button color="warn" (click)="onCancel()" type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

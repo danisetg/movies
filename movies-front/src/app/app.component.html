@@ -1,0 +1,11 @@
+
+<div fxLayout="row" class="container" fxLayoutAlign="center center">
+
+  <mat-icon>light_mode</mat-icon>
+  <mat-slide-toggle [(ngModel)]="darkMode" (change)="changeTheme()"></mat-slide-toggle>
+  <mat-icon>dark_mode</mat-icon>
+
+  <a routerLink="/login" *ngIf="!authService.isLoggedIn()">Login</a>
+  <a routerLink="/logout" *ngIf="authService.isLoggedIn()">Logout</a>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,19 @@
+.movie-card {
+  border: solid 2px;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+
+.mat-icon {
+  vertical-align: bottom;
+  color: goldenrod;
+}

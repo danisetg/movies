@@ -1,0 +1,34 @@
+<div class="container">
+  <div fxLayout="row">
+    <div fxLayour="column" fxFlex="15" fxHide.xs></div>
+    <div fxLayout="column" fxFlex="70" fxFlex.xs="100">
+      <div fxLayout="row">
+        <div fxLayout="column" fxFlex="50">
+          <h1>Movies</h1>
+        </div>
+        <div fxLayout="column" fxFlex="40">
+          <mat-form-field>
+            <input matInput placeholder="Search Movie" [(ngModel)]="options.q" (keyup.enter)="filter()">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" *ngIf="authService.isLoggedIn()">
+        <button color="primary" mat-raised-button routerLink="/movies/create">Add movie</button>
+      </div>
+      <div fxLayout="row wrap" *ngIf="!loading">
+          <div *ngFor="let movie of movies" fxLayout="column" fxFlex="30" fxFlex.xs="100" class="movie-card" [routerLink]="'/movies/' + movie._id">
+              <div fxLayout="row wrap">
+                <div fxLayoutAlign="center center" fxFlex="85" fxLayout="column" class="title">{{movie.film}}</div>
+                <div fxLayoutAlign="center center" fxFlex="10" fxLayout="column">({{movie.year}})</div>
+              </div>
+              <span>{{movie.genre}}</span>
+              <span *ngIf="movie.audience_score"><mat-icon>star_rate</mat-icon>{{movie.audience_score/10}}</span>
+          </div>
+      </div>
+      <div class="row" *ngIf="!allLoaded" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" (click)="loadMore()">Load More</button>
+      </div>
+
+    </div>
+  </div>
+</div>

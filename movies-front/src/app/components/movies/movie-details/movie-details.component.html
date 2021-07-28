@@ -1,0 +1,41 @@
+<div class="container">
+  <div fxLayout="row">
+    <div fxLayour="column" fxFlex="15" fxHide.xs></div>
+    <div fxLayout="column" fxFlex="70" fxFlex.xs="100" *ngIf="movie">
+          <div fxLayout="column" class="movie-card">
+            <div fxLayout="row" *ngIf="authService.isLoggedIn()">
+              <button mat-raised-button color="primary" [routerLink]="'/movies/' + movie._id + '/update'">Update</button>
+              <button mat-raised-button (click)="deleteMovie()" color="warn">Delete</button>
+            </div>
+            <h1>{{movie.film}}</h1>
+            <span class="detail">Genre: <strong>{{movie.genre}}</strong></span>
+            <span class="detail">Studio: <strong>{{movie.lead_studio}}</strong></span>
+            <span class="detail">User Rating: <strong>{{movie.audience_score}}% (round to the nearest decimal)</strong></span>
+            <span class="detail">Rotten Tomatoes Rating: <strong>{{movie.rotten_tomatoes}}%</strong></span>
+            <span class="detail">Worldwide Gross: <strong>{{movie.worldwide_gross}}</strong></span>
+            <span class="detail">Year Released: <strong>{{movie.year}}</strong></span>
+            <hr>
+            <h3>Comments</h3>
+            <span class="detail" *ngFor="let comment of comments">{{comment.name}}: <strong>{{comment.comment}}</strong></span>
+
+            <hr>
+
+            <h4>Leave a comment</h4>
+
+            <form #commentForm="ngForm" (submit)="postComment(commentForm.value)" style="width: fit-content;">
+              <div fxLayout="column">
+                <mat-form-field>
+                  <input matInput name="name" placeholder="Your name" ngModel required>
+                </mat-form-field>
+
+                <textarea name="comment" placeholder="Your comment" ngModel style="width: 300px; height: 200px;" required></textarea>
+
+                <button type="submit" style="margin: 10px;" color="primary" [disabled]="commentForm.invalid" mat-raised-button>Save</button>
+              </div>
+            </form>
+          </div>
+
+    </div>
+
+  </div>
+</div>

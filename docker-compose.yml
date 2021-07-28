@@ -1,0 +1,22 @@
+version: '3.3' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  angular: # name of the first service
+    build: movies-front # specify the directory of the Dockerfile
+    image: dglima/movies_front
+    ports:
+      - "4200:4200" # specify port forewarding
+
+  database: # name of the third service
+    image: mongo # specify image to build container from
+    ports:
+      - "27017:27017" # specify port forewarding
+
+  express: #name of the second service
+    build: movies-back # specify the directory of the Dockerfile
+    image: dglima/movies_back
+    ports:
+      - "3000:3000" #specify ports forewarding
+    links:
+      - database # link this service to the database service
